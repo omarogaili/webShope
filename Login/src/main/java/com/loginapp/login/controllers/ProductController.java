@@ -16,16 +16,22 @@ public class ProductController {
         this.productsRepository = productsRepository;
     }
 
+    @GetMapping("/")
+    public String getAllProducts(Model model) {
+        model.addAttribute("products", productsRepository.findAll());
+        return "home";
+    }
+
     @GetMapping("/DetailPage/{id}")
-    public String getProductsDetail(@PathVariable Long id, Model model, Authentication authentication) {
+    public String getProductsDetails(@PathVariable Long id, Model model, Authentication authentication) {
         return productsRepository.findById(id)
-            .map(prod -> {
-                model.addAttribute("product", prod);
-                if (authentication != null && authentication.isAuthenticated()) {
-                    model.addAttribute("cart",  "inCart");
-                }
-                return "detailPage";
-            })
-            .orElse("redirect:/");
+                .map(prod -> {
+                    model.addAttribute("product", prod);
+                    if (authentication != null && authentication.isAuthenticated()) {
+                        model.addAttribute("cart", "inCart");
+                    }
+                    return "detailPage";
+                })
+                .orElse("redirect:/");
     }
 }
