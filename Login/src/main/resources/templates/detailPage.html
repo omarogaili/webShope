@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DetailPage</title>
+    </head>
+    <body>
+        <h1>Product Details</h1>
+        <div th:if="${product != null}">
+        <p th:text="'Name: ' + ${product.name}">Product Name</p>
+        <p th:text="'Description: ' + ${product.description}">Product Description</p>
+        <p th:text="'Price: $' + ${product.price}">Product Price</p>
+    </div>
+    <div th:if="${product == null}">
+        <p>Product not found.</p>
+    </div>
+    <div th:if="${cart != null}">
+        <!-- To Do:  Implement addToCart function "JavaScript" -->
+        <button th:onclick="'addToCart(' + ${product.id} + ')'">Add to Cart</button> 
+    </div>
+</body>
+</html>
