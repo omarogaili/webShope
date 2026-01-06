@@ -4,6 +4,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import com.loginapp.login.datatransferobjects.UserDto;
 import com.loginapp.login.repository.UserRepository;
 
 public class UserService implements UserDetailsService {
@@ -14,7 +15,9 @@ public class UserService implements UserDetailsService {
     }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+        return userRepository.findByUsername(username)
+                .map(UserDto::new)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username)); 
     }
     
     
