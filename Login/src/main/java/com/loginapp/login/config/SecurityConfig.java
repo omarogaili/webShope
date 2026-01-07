@@ -27,7 +27,14 @@ public class SecurityConfig {
         )
 
         .userDetailsService(userService)
-        .formLogin(Customizer.withDefaults())
+        .formLogin(form -> form
+            .defaultSuccessUrl("/", true)
+            .permitAll()
+        )
+        .logout(form -> form
+            .logoutSuccessUrl("/")
+            .permitAll()
+        )
         .httpBasic(Customizer.withDefaults());
         return http.build();
     }

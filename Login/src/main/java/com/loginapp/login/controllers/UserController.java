@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.loginapp.login.repository.UserRepository;
 import com.loginapp.login.model.User;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -33,4 +35,5 @@ public class UserController {
         model.addAttribute("message", "Användaren har registerat !");
         return "redirect:/";
     }
+    
 }

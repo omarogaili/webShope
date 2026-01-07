@@ -12,14 +12,8 @@ import com.loginapp.login.services.IProductService;
 public class ProductController {
     private final IProductService productService;
 
-    public ProductController( IProductService productService) {
+    public ProductController(IProductService productService) {
         this.productService = productService;
-    }
-
-    @GetMapping("/")
-    public String getAllProducts(Model model) {
-        model.addAttribute("products", productService.findAllProducts());
-        return "home";
     }
 
     @GetMapping("/DetailPage/{id}")
