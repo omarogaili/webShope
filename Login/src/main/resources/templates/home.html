@@ -10,6 +10,8 @@
     <h1>Produktlista</h1>
     <ul>
         <li th:each="product : ${products}" th:text="${product.name}">Produkt namn</li>
+        <img th:each="product : ${products}" th:src="@{${product.imageUrl}}" alt="" />
+        <li th:each="product : ${products}" th:text="${product.price} + ' SEK'">Produkt pris</li>
     </ul>
     <div th:replace="footer :: siteFooter"></div>
 </body>
