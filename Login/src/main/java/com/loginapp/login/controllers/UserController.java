@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.loginapp.login.repository.UserRepository;
 import com.loginapp.login.model.User;
-import org.springframework.web.bind.annotation.RequestParam;
-
-
-
 
 @Controller
 public class UserController {
