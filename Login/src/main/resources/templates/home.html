@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
+    <a th:href="@{/logout}"><button>Logout</button></a>
+    <a th:href="@{/login}"><button>login</button></a>
     <h1>Product List</h1>
     <ul>
         <li th:each="product : ${products}" th:text="${product.name}">Product Name</li>
