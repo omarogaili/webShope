@@ -8,13 +8,13 @@
 </head>
 
 <body>
+    <div th:replace="header :: siteHeader('Skapa Användare')"></div>
     <h1>Registrera Ny Användare</h1>
     <form th:action="@{/users/register}" th:object="${user}" method="post">
         <label for="firstName">Förnamn:</label>
         <input type="text" id="firstName" th:field="*{firstName}" />
         <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
         <br>
-
         <label for="lastName">Efternamn:</label>
         <input type="text" id="lastName" th:field="*{lastName}" />
         <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
@@ -37,6 +37,7 @@
 
         <button type="submit">Registrera</button>
     </form>
+    <div th:replace="footer :: siteFooter"></div>
 </body>
 
 </html>

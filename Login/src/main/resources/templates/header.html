@@ -1,0 +1,14 @@
+<div th:fragment="siteHeader(title)"
+     xmlns:th="http://www.thymeleaf.org"
+     xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+  <header>
+    <h2 th:text="${title}">WebShop</h2>
+    <nav>
+      <a th:href="@{/}">Start</a>
+      <a th:href="@{/users/register}">Registrera</a>
+      <a sec:authorize="isAuthenticated()" th:href="@{/user/orders}">Mina ordrar</a>
+      <a sec:authorize="isAuthenticated()" th:href="@{/logout}">Logga ut</a>
+      <a sec:authorize="isAnonymous()" th:href="@{/login}">Logga in</a>
+    </nav>
+  </header>
+</div>
