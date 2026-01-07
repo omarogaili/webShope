@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>webShop</title>
 </head>
 <body>
-    <a th:if="${isAuthenticated}" th:href="@{/logout}"><button>Logout</button></a>
-    <a th:if="${!isAuthenticated}" th:href="@{/login}"><button>login</button></a>
-    <h1>Product List</h1>
+    <a th:if="${isAuthenticated}" th:href="@{/logout}"><button>logga ut</button></a>
+    <a th:if="${!isAuthenticated}" th:href="@{/login}"><button>logga in</button></a>
+    <h1>Produktlista</h1>
     <ul>
-        <li th:each="product : ${products}" th:text="${product.name}">Product Name</li>
+        <li th:each="product : ${products}" th:text="${product.name}">Produkt namn</li>
     </ul>
 </body>
 </html>

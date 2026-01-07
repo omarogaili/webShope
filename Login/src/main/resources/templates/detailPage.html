@@ -6,18 +6,18 @@
         <title>DetailPage</title>
     </head>
     <body>
-        <h1>Product Details</h1>
+        <h1>Produktdetaljer</h1>
         <div th:if="${product != null}">
-        <p th:text="'Name: ' + ${product.name}">Product Name</p>
-        <p th:text="'Description: ' + ${product.description}">Product Description</p>
-        <p th:text="'Price: $' + ${product.price}">Product Price</p>
+        <p th:text="'Name: ' + ${product.name}">Produkt namn</p>
+        <p th:text="'Description: ' + ${product.description}">Produkt beskrivning</p>
+        <p th:text="'Price: $' + ${product.price}">Produkt pris</p>
     </div>
     <div th:if="${product == null}">
-        <p>Product not found.</p>
+        <p>Produkten hittades inte.</p>
     </div>
     <div th:if="${cart != null}">
         <!-- To Do:  Implement addToCart function "JavaScript" -->
-        <button th:onclick="'addToCart(' + ${product.id} + ')'">Add to Cart</button> 
+        <button th:onclick="'addToCart(' + ${product.id} + ')'">Lägg till i kundvagn</button> 
     </div>
 </body>
 </html>
