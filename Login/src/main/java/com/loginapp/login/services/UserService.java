@@ -3,13 +3,15 @@ package com.loginapp.login.services;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.loginapp.login.datatransferobjects.UserDto;
 import com.loginapp.login.repository.UserRepository;
 
+@Service
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
-    
+
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

@@ -1,6 +1,7 @@
 package com.loginapp.login.datatransferobjects;
 
 import java.util.Collection;
+import java.util.Collections;
 
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,7 +19,7 @@ public class UserDto implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.emptyList();
     }
 
     @Override
