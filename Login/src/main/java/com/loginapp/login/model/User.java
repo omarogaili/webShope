@@ -23,10 +23,10 @@ public class User {
     private String email;
     @Column(nullable = false, unique = true) @NotBlank @Size(min =4, max=20)
     private String username;
-    @Column(nullable = false) @NotBlank @Size(min =8, max=50)
+    @Column(nullable = false) @NotBlank @Size(min =8, max=150)
     private String password;
 
-    protected User() {
+    public User() {
     }
 
     public User(String firstName, String lastName, String email, String username, String password) {
