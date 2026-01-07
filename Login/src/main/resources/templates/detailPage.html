@@ -6,6 +6,7 @@
         <title>DetailPage</title>
     </head>
     <body>
+        <div th:replace="header :: siteHeader('Produktdetaljer')"></div>
         <h1>Produktdetaljer</h1>
         <div th:if="${product != null}">
         <p th:text="'Name: ' + ${product.name}">Produkt namn</p>
@@ -19,5 +20,6 @@
         <!-- To Do:  Implement addToCart function "JavaScript" -->
         <button th:onclick="'addToCart(' + ${product.id} + ')'">Lägg till i kundvagn</button> 
     </div>
+    <div th:replace="footer :: siteFooter"></div>
 </body>
 </html>

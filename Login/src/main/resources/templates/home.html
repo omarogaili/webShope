@@ -6,11 +6,11 @@
     <title>webShop</title>
 </head>
 <body>
-    <a th:if="${isAuthenticated}" th:href="@{/logout}"><button>logga ut</button></a>
-    <a th:if="${!isAuthenticated}" th:href="@{/login}"><button>logga in</button></a>
+    <div th:replace="header :: siteHeader('webShop')"></div>
     <h1>Produktlista</h1>
     <ul>
         <li th:each="product : ${products}" th:text="${product.name}">Produkt namn</li>
     </ul>
+    <div th:replace="footer :: siteFooter"></div>
 </body>
 </html>
