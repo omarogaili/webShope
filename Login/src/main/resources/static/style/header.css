@@ -1,0 +1,27 @@
+header{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.nav-links a{
+    margin-right: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.nav-links a:hover{
+    color: #007BFF;
+}
+
+.dark-mode header{
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+.dark-mode .nav-links a{
+    color: #ffffff;
+}
+.dark-mode .nav-links a:hover{
+    color: #66B2FF;
+}
