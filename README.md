@@ -55,16 +55,27 @@ spring.datasource.password=******
 spring.datasource.username=***
 ```
 ## Projektstruktur
-Login/
-    src/main/
+```
+Login/ 
+     
+     src/main/
+
         java/com/loginapp/login/
             config/              # Säkerhetskonfiguration
+
             controllers/         #  controllers
-            datatransferobjects/ # DTOs för dataöverföring
+            
+            datatransferobjects/ # DTOs för dataöverföring  
+            
             model/               # Entitetsklasser
+            
             repository/          # Databasåtkomst
+            
             services/            # Affärslogik
+        
         resources/
-            static/              # Statisk resursfiler (CSS, JS, bilder)
+            static/              # Statisk resursfiler (CSS, JS, bilder)    
+                style/           # CSS-filtrering   
             templates/           # Thymeleaf-mallar
+````
 
