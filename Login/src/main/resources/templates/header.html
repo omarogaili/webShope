@@ -3,6 +3,7 @@
      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
   <header>
     <h2 th:text="${title}">WebShop</h2>
+    <button id="darkModeToggle">Dark Mode</button>
     <nav>
       <a th:href="@{/}">Start</a>
       <a th:href="@{/users/register}">Registrera</a>
@@ -10,5 +11,6 @@
       <a sec:authorize="isAuthenticated()" th:href="@{/logout}">Logga ut</a>
       <a sec:authorize="isAnonymous()" th:href="@{/login}">Logga in</a>
     </nav>
+    <script th:src="@{/script/darkmode.js}"></script>
   </header>
 </div>
