@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DetailPage</title>
+    </head>
+    <body>
+        <div th:replace="header :: siteHeader('Produktdetaljer')"></div>
+        <h1>Produktdetaljer</h1>
+        <div th:if="${product != null}">
+        <p th:text="'Name: ' + ${product.name}">Produkt namn</p>
+        <p th:text="'Description: ' + ${product.description}">Produkt beskrivning</p>
+        <p th:text="'Price: $' + ${product.price}">Produkt pris</p>
+    </div>
+    <div th:if="${product == null}">
+        <p>Produkten hittades inte.</p>
+    </div>
+    <div th:if="${cart != null}">
+        <!-- To Do:  Implement addToCart function "JavaScript" -->
+        <button th:onclick="'addToCart(' + ${product.id} + ')'">Lägg till i kundvagn</button> 
+    </div>
+    <div th:replace="footer :: siteFooter"></div>
+</body>
+</html>
