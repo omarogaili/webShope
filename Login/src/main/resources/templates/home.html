@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/style/home.css}">
     <title>webShop</title>
 </head>
 <body>
     <div th:replace="header :: siteHeader('webShop')"></div>
-    <h1>Produktlista</h1>
-    <div>
+    <div class="productContainer">
+        <h1>webShop</h1>
         <a th:each="product : ${products}" th:href="@{/DetailPage/{id}(id=${product.id})}">
-            <div>
+            <div class="productCard">
+                <img th:src="@{${product.imageUrl}}" alt="@{${product.description}}" />
                 <h4 th:text="${product.name}">Produkt namn</h4>
-                <img th:src="@{${product.imageUrl}}" alt="" />
                 <h4 th:text="${product.price} + ' SEK'">Produkt pris</h4>
             </div>
         </a>

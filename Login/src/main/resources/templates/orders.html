@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/style/order.css}">
+    <link rel="stylesheet" th:href="@{/style/globalStyle.css}">
     <title>Mina Ordrar</title>
 </head>
 <body>
     <div th:replace="header :: siteHeader('Mina Ordrar')"></div>
-    <h1>Mina Ordrar</h1>
+    <main class="mainContainer">
+        <h1>Mina Ordrar</h1>
+    </main>
     <div th:replace="footer :: siteFooter"></div>
+    <script th:src="@{/script/darkmode.js}"></script>
 </body>
 </html>

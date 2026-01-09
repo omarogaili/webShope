@@ -3,23 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/style/detailPage.css}">
+        <link rel="stylesheet" th:href="@{/style/globalStyle.css}">
         <title>DetailPage</title>
+        
     </head>
     <body>
         <div th:replace="header :: siteHeader('Produktdetaljer')"></div>
-        <h1>Produktdetaljer</h1>
-        <div th:if="${product != null}">
-        <p th:text="'Name: ' + ${product.name}">Produkt namn</p>
-        <p th:text="'Description: ' + ${product.description}">Produkt beskrivning</p>
-        <p th:text="'Price: $' + ${product.price}">Produkt pris</p>
-    </div>
-    <div th:if="${product == null}">
-        <p>Produkten hittades inte.</p>
-    </div>
-    <div th:if="${cart != null}">
-        <!-- To Do:  Implement addToCart function "JavaScript" -->
-        <button th:onclick="'addToCart(' + ${product.id} + ')'">Lägg till i kundvagn</button> 
-    </div>
+        <div class="productDetail">
+            <h1 th:text="${product.name}">Produktdetaljer</h1>
+            <div th:if="${product != null}" class="productInfo">
+                <img th:src="@{${product.imageUrl}}" alt="" />
+                <p th:text="'Produkt beskrivning: ' + ${product.description}">Produkt beskrivning</p>
+                <p th:text="'Pris: $' + ${product.price}">Produkt pris</p>
+            </div>
+            <div th:if="${product == null}">
+                <p>Produkten hittades inte.</p>
+            </div>
+            <div th:if="${cart != null}">
+                <button th:onclick="'addToCart(' + ${product.id} + ')'">Lägg till i kundvagn</button> 
+            </div>
+        </div>
     <div th:replace="footer :: siteFooter"></div>
+    <script th:src="@{/script/darkmode.js}"></script>
 </body>
 </html>
