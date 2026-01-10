@@ -5,6 +5,7 @@ import java.util.Collections;
 
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.loginapp.login.model.User;
@@ -19,7 +20,7 @@ public class UserDto implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.emptyList();
+        return Collections.singletonList( new SimpleGrantedAuthority("ROLE" + user.getRole()));
     }
 
     @Override

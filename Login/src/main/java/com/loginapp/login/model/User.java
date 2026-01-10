@@ -25,16 +25,19 @@ public class User {
     private String username;
     @Column(nullable = false) @NotBlank @Size(min =8, max=150)
     private String password;
+    @Column (nullable = false)
+    private String role = "USER";
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, String username, String password) {
+    public User(String firstName, String lastName, String email, String username, String password, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
+        this.role = role;
     }
 
     public Long getId() {
@@ -79,6 +82,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
     
 }
