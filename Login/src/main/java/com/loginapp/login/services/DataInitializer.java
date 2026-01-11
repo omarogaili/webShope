@@ -1,16 +1,25 @@
 package com.loginapp.login.services;
 
 import jakarta.annotation.PostConstruct;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import com.loginapp.login.model.Product;
+import com.loginapp.login.model.User;
 import com.loginapp.login.repository.ProductsRepository;
+import com.loginapp.login.repository.UserRepository;
 
 @Service
 public class DataInitializer {
     private final ProductsRepository productsRepository;
+    private final UserRepository userRepository;
+        private PasswordEncoder passwordDCryptor;
 
-    public DataInitializer(ProductsRepository productsRepository) {
+    public DataInitializer(ProductsRepository productsRepository, UserRepository userRepository, PasswordEncoder passwordDCryptor) {
         this.productsRepository = productsRepository;
+        this.userRepository = userRepository;
+        this.passwordDCryptor = passwordDCryptor;
     }
 
     @PostConstruct
