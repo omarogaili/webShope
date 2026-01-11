@@ -14,21 +14,24 @@ import com.loginapp.login.services.UserService;
 @Configuration
 public class SecurityConfig {
     private final UserService userService;
+    private final CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
 
-    public SecurityConfig(UserService userService) {
+    public SecurityConfig(UserService userService, CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler) {
         this.userService = userService;
+        this.customAuthenticationSuccessHandler = customAuthenticationSuccessHandler;
     }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests((request) -> request
                 .requestMatchers("/", "/DetailPage/**", "/users/register", "/images/**" , "/style/**","/css/**" , "/script/**").permitAll()
+                .requestMatchers("/webShop/adminPanel").hasRole("ADMIN")
                 .anyRequest().authenticated()
         )
 
         .userDetailsService(userService)
         .formLogin(form -> form
-            .defaultSuccessUrl("/", true)
+            .successHandler(customAuthenticationSuccessHandler)
             .permitAll()
         )
         .logout(form -> form
@@ -36,7 +39,7 @@ public class SecurityConfig {
             .permitAll()
         )
         .httpBasic(Customizer.withDefaults());
-        return http.build();
+        return http.build();    
     }
 
     @Bean

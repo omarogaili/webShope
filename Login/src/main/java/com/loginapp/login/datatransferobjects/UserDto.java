@@ -20,7 +20,7 @@ public class UserDto implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList( new SimpleGrantedAuthority("ROLE" + user.getRole()));
+        return Collections.singletonList( new SimpleGrantedAuthority("ROLE_" + user.getRole()));
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.loginapp.login.controllers;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +13,11 @@ import com.loginapp.login.model.User;
 
 import jakarta.validation.Valid;
 
+
+
 @Controller
 public class UserController {
-    
+
     private final UserRepository userRepository;
     private PasswordEncoder passwordDCryptor;
 
@@ -29,7 +32,8 @@ public class UserController {
         return "register";
     }
 
-    // jag har hittat den här lösningen på internet för att validera formulärdata med hjälp av @Valid och BindingResult källan är här:
+    // jag har hittat den här lösningen på internet för att validera formulärdata
+    // med hjälp av @Valid och BindingResult källan är här:
     // https://spring.io/guides/gs/validating-form-input .
     @PostMapping("/users/register")
     public String postUserRegistering(@Valid User user, BindingResult bindingResult, Model model) {
@@ -42,5 +46,15 @@ public class UserController {
         model.addAttribute("message", "Användaren har registerat !");
         return "redirect:/";
     }
-    
+
+    @GetMapping("/webShop/adminPanel")
+    public String showAdminPanel(Authentication authentication) {
+        if (authentication == null || !authentication.getAuthorities().stream()
+                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN"))) {
+            return "redirect:/";
+        }
+
+        return "admin";
+    }
+
 }
