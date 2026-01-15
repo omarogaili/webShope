@@ -13,8 +13,6 @@ import com.loginapp.login.model.User;
 
 import jakarta.validation.Valid;
 
-
-
 @Controller
 public class UserController {
 
