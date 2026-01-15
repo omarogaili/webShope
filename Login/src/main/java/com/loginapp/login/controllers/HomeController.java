@@ -1,13 +1,14 @@
 package com.loginapp.login.controllers;
 
-import org.springframework.security.core.Authentication;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.loginapp.login.model.Product;
 import com.loginapp.login.services.IProductService;
 
-@Controller
+@RestController
 public class HomeController {
     private final IProductService productService;
     
@@ -15,13 +16,9 @@ public class HomeController {
         this.productService = productService;
     }
 
-    
     @GetMapping("/")
-    public String showHome(Authentication authentication, Model model) {
-        model.addAttribute("products", productService.findAllProducts());
-        boolean isAuthenticated = authentication != null && authentication.isAuthenticated();
-        model.addAttribute("isAuthenticated", isAuthenticated);
-        return "home";
+    public List<Product> showHome() {
+        return productService.findAllProducts();
     }
 
 }
